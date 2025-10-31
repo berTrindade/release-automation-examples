@@ -5,7 +5,7 @@
 Proof-of-concept showing a **fully automated release workflow** with:
 
 - Zero-touch releases triggered by merge to `main`
-- Automatic version determination from Conventional Commits  
+- Automatic version determination from Conventional Commits
 - Automated changelog generation and GitHub Release creation
 - Optional npm package publishing
 
@@ -46,18 +46,21 @@ npm run build
 ### Development Workflow
 
 1. **Create feature branch**:
+
 ```bash
 git checkout -b feature/awesome-feature
 ```
 
 2. **Make changes with Conventional Commits**:
+
 ```bash
 git commit -m "feat: add user authentication endpoint"
-git commit -m "fix: resolve CORS configuration issue"  
+git commit -m "fix: resolve CORS configuration issue"
 git commit -m "docs: update API documentation"
 ```
 
 3. **Create Pull Request**:
+
    - CI automatically runs lint + tests
    - Code review and approval process
    - Merge when ready
@@ -72,12 +75,12 @@ git commit -m "docs: update API documentation"
 
 ### Commit Types & Versioning
 
-| Commit Type | Version Impact | Example |
-|-------------|----------------|---------|
-| `fix:` | Patch release (1.0.1) | `fix: resolve login validation` |
-| `feat:` | Minor release (1.1.0) | `feat: add password reset feature` |
-| `feat!:` or `BREAKING CHANGE:` | Major release (2.0.0) | `feat!: change API response format` |
-| `docs:`, `style:`, `refactor:`, `test:`, `chore:` | No release | Maintenance commits |
+| Commit Type                                       | Version Impact        | Example                             |
+| ------------------------------------------------- | --------------------- | ----------------------------------- |
+| `fix:`                                            | Patch release (1.0.1) | `fix: resolve login validation`     |
+| `feat:`                                           | Minor release (1.1.0) | `feat: add password reset feature`  |
+| `feat!:` or `BREAKING CHANGE:`                    | Major release (2.0.0) | `feat!: change API response format` |
+| `docs:`, `style:`, `refactor:`, `test:`, `chore:` | No release            | Maintenance commits                 |
 
 ## Repository Structure
 
@@ -98,11 +101,13 @@ For full automation, configure these secrets in repository Settings → Secrets:
 ## Docker Usage
 
 Build image:
+
 ```bash
 docker build -t node-release-poc:latest .
 ```
 
 Run container:
+
 ```bash
 docker run -p 3000:3000 node-release-poc:latest
 ```

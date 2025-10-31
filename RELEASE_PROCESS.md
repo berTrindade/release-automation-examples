@@ -41,7 +41,7 @@ This document describes the **automated release process** using semantic-release
 
 - **Tool**: `semantic-release` package
 - **Strategy**: Fully automated SemVer based on Conventional Commits
-- **Implementation**: 
+- **Implementation**:
   - `semantic-release` analyzes commit history since last release
   - Automatically determines next version (patch/minor/major)
   - Updates `package.json` and creates git tag
@@ -50,7 +50,7 @@ This document describes the **automated release process** using semantic-release
 ### 2. **Branching Strategy**
 
 - **Strategy**: GitHub Flow with protected main branch
-- **Implementation**: 
+- **Implementation**:
   - Feature branches → PR → automated merge checks → merge to `main`
   - Releases triggered automatically on every push to `main`
   - No manual release branches needed
@@ -59,7 +59,7 @@ This document describes the **automated release process** using semantic-release
 
 - **Pre-merge**: All tests must pass before merge to `main`
 - **Release**: Only successful builds trigger releases
-- **Implementation**: 
+- **Implementation**:
   - `npm test` (Jest + Supertest) runs on every PR
   - `npm run lint` (ESLint) enforces code quality
   - Failed tests block merge and prevent releases
@@ -116,6 +116,7 @@ This document describes the **automated release process** using semantic-release
 Set these in your repository's Settings → Secrets and variables → Actions:
 
 1. **GITHUB_TOKEN** (automatically available)
+
    - Used for creating releases and pushing commits
    - Default token usually has sufficient permissions
 
@@ -127,16 +128,17 @@ Set these in your repository's Settings → Secrets and variables → Actions:
 ### Semantic-Release Configuration
 
 File: `.releaserc.json`
+
 ```json
 {
   "branches": ["main"],
   "plugins": [
-    "@semantic-release/commit-analyzer",      // Analyze commits for version
+    "@semantic-release/commit-analyzer", // Analyze commits for version
     "@semantic-release/release-notes-generator", // Generate release notes
-    "@semantic-release/changelog",            // Update CHANGELOG.md
-    "@semantic-release/npm",                  // Publish to npm (optional)
-    "@semantic-release/git",                  // Commit version changes
-    "@semantic-release/github"                // Create GitHub Release
+    "@semantic-release/changelog", // Update CHANGELOG.md
+    "@semantic-release/npm", // Publish to npm (optional)
+    "@semantic-release/git", // Commit version changes
+    "@semantic-release/github" // Create GitHub Release
   ]
 }
 ```
@@ -144,11 +146,13 @@ File: `.releaserc.json`
 ## Development Workflow
 
 ### 1. Create Feature Branch
+
 ```bash
 git checkout -b feature/new-feature
 ```
 
 ### 2. Make Changes with Conventional Commits
+
 ```bash
 git commit -m "feat: add user authentication endpoint"
 git commit -m "fix: resolve CORS issue in middleware"
@@ -156,11 +160,13 @@ git commit -m "docs: update API documentation"
 ```
 
 ### 3. Create Pull Request
+
 - CI automatically runs lint + tests
 - Code review process
 - Merge when approved and tests pass
 
 ### 4. Automatic Release (No Manual Steps!)
+
 - Merge to `main` triggers release workflow
 - `semantic-release` analyzes commits
 - Version bump, changelog, tag, and GitHub Release created automatically
@@ -168,12 +174,12 @@ git commit -m "docs: update API documentation"
 
 ## Commit Message Impact on Versioning
 
-| Commit Type | Version Bump | Example |
-|-------------|--------------|---------|
-| `fix:` | PATCH (1.0.1) | `fix: resolve authentication bug` |
-| `feat:` | MINOR (1.1.0) | `feat: add user profile endpoint` |
-| `feat!:` or `BREAKING CHANGE:` | MAJOR (2.0.0) | `feat!: change API response format` |
-| `docs:`, `style:`, `refactor:`, `test:`, `chore:` | No release | Documentation and maintenance |
+| Commit Type                                       | Version Bump  | Example                             |
+| ------------------------------------------------- | ------------- | ----------------------------------- |
+| `fix:`                                            | PATCH (1.0.1) | `fix: resolve authentication bug`   |
+| `feat:`                                           | MINOR (1.1.0) | `feat: add user profile endpoint`   |
+| `feat!:` or `BREAKING CHANGE:`                    | MAJOR (2.0.0) | `feat!: change API response format` |
+| `docs:`, `style:`, `refactor:`, `test:`, `chore:` | No release    | Documentation and maintenance       |
 
 ## Automated Release Benefits
 
@@ -186,21 +192,25 @@ git commit -m "docs: update API documentation"
 ## Production Extensions
 
 ### Enhanced Security
+
 - Use fine-grained personal access tokens instead of GITHUB_TOKEN
 - Implement signed commits and releases
 - Add dependency scanning and vulnerability checks
 
 ### Advanced Deployment
+
 - Add deployment steps after successful release
 - Implement canary deployments with automated rollback
 - Integrate with Kubernetes for zero-downtime deployments
 
 ### Monitoring and Observability
+
 - Add release metrics to monitoring dashboards
 - Implement automated health checks after deployment
 - Set up alerts for failed releases or deployments
 
 ### Release Management
+
 - Add release approval workflows for production
 - Implement release schedules (e.g., release trains)
 - Add integration with project management tools
@@ -208,17 +218,20 @@ git commit -m "docs: update API documentation"
 ## Repository Components
 
 ### Package.json Scripts
+
 - `npm test`: Run test suite (blocks release if failing)
 - `npm run lint`: Run ESLint (blocks release if failing)
 - `npm run build`: Create distribution tarball
 - `npm run semantic-release`: Manual trigger for semantic-release (development)
 
 ### GitHub Actions Workflow
+
 - **ci.yml**: Combined CI and release workflow
   - **build-and-test job**: Runs on all pushes/PRs
   - **release job**: Runs only on push to `main` after tests pass
 
 ### Configuration Files
+
 - `.releaserc.json`: Semantic-release configuration
 - `commitlint.config.js`: Conventional Commits validation
 - `.lintstagedrc.json`: Pre-commit linting rules
@@ -228,16 +241,19 @@ git commit -m "docs: update API documentation"
 ## Troubleshooting
 
 ### Release Not Triggered
+
 - Check that commits follow Conventional Commits format
 - Ensure at least one commit has `feat:` or `fix:` since last release
 - Verify CI tests are passing
 
 ### Permission Errors
+
 - Check GITHUB_TOKEN permissions in repository settings
 - Ensure Actions have write permissions to repository
 - For npm publishing, verify NPM_TOKEN is valid
 
 ### Failed Release
+
 - Check GitHub Actions logs for specific error messages
 - Common issues: test failures, linting errors, network timeouts
 - Semantic-release will retry on next push to `main`
