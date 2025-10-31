@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/your/repo/compare/v0.0.2...v0.0.3) (2025-10-31)
+
+
+### Features
+
+* add /metrics endpoint with system information ([bd2d846](https://github.com/your/repo/commit/bd2d8467dd19c8d64c130140d7a71d81ca64ecc8))
+
 ### [0.0.2](https://github.com/your/repo/compare/v0.0.1...v0.0.2) (2025-10-31)
 
 
