@@ -2,9 +2,9 @@ name: CI and Auto-Release
 
 on:
   push:
-    branches: [main, master]
+    branches: [main, master, auto-release]
   pull_request:
-    branches: [main, master]
+    branches: [main, master, auto-release]
 
 jobs:
   build-and-test:
@@ -35,7 +35,7 @@ jobs:
   release:
     needs: build-and-test
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/auto-release') && github.event_name == 'push'
     steps:
       - uses: actions/checkout@v4
         with:
