@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.2](https://github.com/your/repo/compare/v0.0.1...v0.0.2) (2025-10-31)
+
+
+### Features
+
+* add /status endpoint with uptime and timestamp info ([#4](https://github.com/your/repo/issues/4)) ([9153fc7](https://github.com/your/repo/commit/9153fc796fd03cec771be9c600b231f33e3dad7f))
+* enable auto-generated release notes in release workflow ([5f96a31](https://github.com/your/repo/commit/5f96a31c7f995a7d104275ba26378f22dd0701e2))
+* enable auto-generated release notes in release workflow ([c427a92](https://github.com/your/repo/commit/c427a9219b0f3096572f1f9150a3a22afd301a6c))
+
+
+### Bug Fixes
+
+* add package-lock.json for npm ci in workflows ([31a2e8f](https://github.com/your/repo/commit/31a2e8f8c526710155e84a2b91166fdcfc152343))
+* disable body-max-line-length rule for release commits ([51cea7a](https://github.com/your/repo/commit/51cea7a652c1e8ece98b03d3c9fcb55e903b352c))
+
 ### [0.0.1](https://github.com/your/repo/compare/v0.0.0...v0.0.1) (2025-10-31)
 
 ### Features
