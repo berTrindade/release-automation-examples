@@ -56,6 +56,30 @@ if: github.ref == 'refs/heads/main' && github.event_name == 'push'  # ❌ Missin
 - semantic-release couldn't update CHANGELOG.md
 - No automated release artifacts
 
+### Problem 4: Missing package-lock.json File
+
+**Branches Affected**: Both `manual-release` and `auto-release`
+
+**Root Cause**: No `package-lock.json` committed to the repository, but workflows use `npm ci`:
+
+```yaml
+- name: Install dependencies
+  run: npm ci  # ❌ Requires package-lock.json
+```
+
+**Error Message**:
+```
+Error: Dependencies lock file is not found in /home/runner/work/node-release-poc/node-release-poc.
+Supported file patterns: package-lock.json,npm-shrinkwrap.json,yarn.lock
+```
+
+**Impact**:
+
+- All GitHub Actions workflows failed at the "Use Node.js" step
+- Unable to cache npm dependencies
+- Unable to install dependencies
+- All CI/CD pipelines blocked
+
 ## Fixes Applied
 
 ### Fix 1: Update CI Workflow Triggers (Both Branches)
@@ -128,6 +152,33 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # ✅ Added explicit token
 ```
+
+### Fix 4: Add package-lock.json File (Both Branches)
+
+**File**: `package-lock.json`
+
+**Action**: Generated and committed lock file to repository
+
+**manual-release branch**:
+
+```bash
+npm install  # Generates package-lock.json
+git add package-lock.json
+git commit -m "fix: add package-lock.json for npm ci in workflows"
+```
+
+**auto-release branch**:
+
+```bash
+npm install  # Updates package-lock.json with semantic-release deps
+git add package-lock.json  
+git commit -m "fix: update package-lock.json for semantic-release dependencies"
+```
+
+**Result**:
+- ✅ `npm ci` now works in GitHub Actions
+- ✅ Dependency caching enabled (faster workflow runs)
+- ✅ Deterministic builds with locked dependency versions
 
 ## What Now Works
 
@@ -205,16 +256,20 @@ gh pr merge --squash
 | `.github/workflows/ci.yml` | manual-release | Added `manual-release` and `auto-release` to branch triggers + `contents: read` permission |
 | `.github/workflows/ci.yml` | auto-release | Added `auto-release` to branch triggers + release job condition + `contents: write`, `issues: write`, `pull-requests: write` permissions |
 | `.github/workflows/release.yml` | manual-release | Added `permissions: contents: write` + explicit `GITHUB_TOKEN` env var |
+| `package-lock.json` | manual-release | Generated and committed for `npm ci` compatibility |
+| `package-lock.json` | auto-release | Updated with semantic-release dependencies |
 
 ## Commits Made
 
 1. **manual-release**: 
    - `fix: update CI workflow to run on manual-release and auto-release branches`
    - `fix: add permissions to workflows for GitHub token access`
+   - `fix: add package-lock.json for npm ci in workflows`
 
 2. **auto-release**: 
    - `fix: update CI workflow to run on auto-release branch`
    - `fix: add write permissions for semantic-release workflow`
+   - `fix: update package-lock.json for semantic-release dependencies`
 
 All fixes have been pushed to GitHub. The workflows should now:
 
@@ -222,3 +277,5 @@ All fixes have been pushed to GitHub. The workflows should now:
 - ✅ Have proper permissions to create releases
 - ✅ Be able to push tags and update files (semantic-release)
 - ✅ Create GitHub Releases with artifacts
+- ✅ Successfully install dependencies with `npm ci`
+- ✅ Use cached dependencies for faster builds
