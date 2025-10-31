@@ -18,4 +18,12 @@ app.get('/info', (req, res) => {
   });
 });
 
+app.get('/status', (req, res) => {
+  res.json({
+    uptime: process.uptime(),
+    timestamp: Date.now(),
+    message: 'Service is running'
+  });
+});
+
 module.exports = app;
