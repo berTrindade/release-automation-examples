@@ -93,10 +93,9 @@ git commit -m "docs: update API documentation"
 
 ## Required GitHub Secrets
 
-For full automation, configure these secrets in repository Settings → Secrets:
+For full automation, configure this secret in repository Settings → Secrets:
 
 - **GITHUB_TOKEN**: Automatically available (creates releases, pushes commits)
-- **NPM_TOKEN**: Optional, only needed for npm publishing
 
 ## Docker Usage
 
