@@ -1,6 +1,6 @@
 {
     "name": "node-release-poc",
-    "version": "0.0.0-development",
+    "version": "0.0.0",
     "description": "POC: Node.js release process with CI/CD, conventional commits, and semantic changelogs",
     "main": "src/index.js",
     "scripts": {
