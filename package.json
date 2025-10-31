@@ -14,7 +14,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/your/repo.git"
+        "url": "git+https://github.com/berTrindade/node-release-poc.git"
     },
     "keywords": [],
     "author": "",
