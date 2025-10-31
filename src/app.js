@@ -26,4 +26,13 @@ app.get('/status', (req, res) => {
   });
 });
 
+app.get('/metrics', (req, res) => {
+  res.json({
+    uptime: process.uptime(),
+    memory: process.memoryUsage(),
+    platform: process.platform,
+    nodeVersion: process.version
+  });
+});
+
 module.exports = app;
