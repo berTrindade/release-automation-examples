@@ -4,12 +4,12 @@ This POC now demonstrates **FOUR** different release approaches:
 
 ## 📊 Branch Overview
 
-| Branch | Tool | Philosophy | Automation | Human Gate |
-|--------|------|------------|------------|------------|
-| `manual-release` | standard-version | Manual control | Low | When to release |
-| `auto-release` | semantic-release | Fully automated | Highest | None |
-| `release-please` | Release Please | PR-based | Medium | Merge Release PR |
-| `changesets` | Changesets | Explicit declaration | Low | Create changeset + Merge PR |
+| Branch           | Tool             | Philosophy           | Automation | Human Gate                  |
+| ---------------- | ---------------- | -------------------- | ---------- | --------------------------- |
+| `manual-release` | standard-version | Manual control       | Low        | When to release             |
+| `auto-release`   | semantic-release | Fully automated      | Highest    | None                        |
+| `release-please` | Release Please   | PR-based             | Medium     | Merge Release PR            |
+| `changesets`     | Changesets       | Explicit declaration | Low        | Create changeset + Merge PR |
 
 ## 1️⃣ manual-release (Custom/Legacy Approach)
 
@@ -17,6 +17,7 @@ This POC now demonstrates **FOUR** different release approaches:
 **Workflow:** Manual trigger → Tag creation → GitHub Release
 
 ### How It Works:
+
 ```bash
 # 1. Merge features to manual-release
 # 2. Manually trigger release
@@ -29,11 +30,13 @@ git push --follow-tags
 ```
 
 ### Pros:
+
 - ✅ Full control over when releases happen
 - ✅ Simple to understand
 - ✅ Works with any workflow
 
 ### Cons:
+
 - ❌ Manual trigger required
 - ❌ Can forget to release
 - ❌ Older tooling (standard-version)
@@ -46,6 +49,7 @@ git push --follow-tags
 **Workflow:** Push → Analyze commits → Auto release
 
 ### How It Works:
+
 ```bash
 # 1. Push commits with conventional format
 git push origin auto-release
@@ -59,12 +63,14 @@ git push origin auto-release
 ```
 
 ### Pros:
+
 - ✅ Zero manual intervention
 - ✅ Consistent releases
 - ✅ Modern industry standard
 - ✅ Multi-branch support (beta, alpha)
 
 ### Cons:
+
 - ❌ No human oversight
 - ❌ Releases on every push (if commits trigger it)
 - ❌ Requires strict commit discipline
@@ -77,6 +83,7 @@ git push origin auto-release
 **Workflow:** Push → Bot creates PR → Review → Merge → Release
 
 ### How It Works:
+
 ```bash
 # 1. Push commits to release-please
 git push origin release-please
@@ -96,6 +103,7 @@ gh pr merge --squash
 ```
 
 ### Pros:
+
 - ✅ Human oversight before every release
 - ✅ Clear audit trail through PRs
 - ✅ GitHub-native workflow
@@ -103,6 +111,7 @@ gh pr merge --squash
 - ✅ Balance of automation and control
 
 ### Cons:
+
 - ❌ Requires PR merge for release
 - ❌ Can accumulate changes in one PR
 - ❌ Extra step compared to semantic-release
@@ -115,6 +124,7 @@ gh pr merge --squash
 **Workflow:** Create changeset → Bot creates PR → Merge → Release
 
 ### How It Works:
+
 ```bash
 # 1. Make code changes
 
@@ -135,6 +145,7 @@ git push origin changesets
 ```
 
 ### Pros:
+
 - ✅ Maximum control over releases
 - ✅ Collaborative changelog creation
 - ✅ Explicit change declaration
@@ -142,6 +153,7 @@ git push origin changesets
 - ✅ Changeset files provide context
 
 ### Cons:
+
 - ❌ Extra step (creating changesets)
 - ❌ More manual work
 - ❌ Developers can forget to create changesets
@@ -152,24 +164,28 @@ git push origin changesets
 ## 🎯 Which Approach to Use?
 
 ### Choose **manual-release** if:
+
 - You want simple, full control
 - Working solo or small team
 - Don't mind manual triggers
 - Learning release automation
 
 ### Choose **auto-release** (semantic-release) if:
+
 - Want maximum automation
 - Team follows conventional commits strictly
 - Comfortable with automatic releases
 - Need multi-branch support (beta, alpha)
 
 ### Choose **release-please** if:
+
 - Want automation WITH oversight
 - Prefer GitHub-native workflows
 - Need approval gates for releases
 - Want best of both worlds
 
 ### Choose **changesets** if:
+
 - Need maximum control and documentation
 - Want collaborative changelogs
 - Complex multi-package coordination
@@ -180,6 +196,7 @@ git push origin changesets
 ## 📚 Implementation Details
 
 ### All Branches Include:
+
 - ✅ Conventional commits enforcement
 - ✅ CHANGELOG auto-generation
 - ✅ GitHub Actions CI/CD
@@ -189,13 +206,13 @@ git push origin changesets
 
 ### Key Differences:
 
-| Feature | manual | auto | release-please | changesets |
-|---------|--------|------|----------------|-----------|
-| **Trigger** | Manual command | Auto on push | Merge Release PR | Merge Version PR |
-| **Version bump** | Manual trigger | Automatic | In Release PR | In Version PR |
-| **CHANGELOG** | Auto-generated | Auto-generated | Auto-generated | From changesets |
-| **Review gate** | Optional | None | Required (PR) | Required (PR + changeset) |
-| **Complexity** | Low | Low | Medium | High |
+| Feature          | manual         | auto           | release-please   | changesets                |
+| ---------------- | -------------- | -------------- | ---------------- | ------------------------- |
+| **Trigger**      | Manual command | Auto on push   | Merge Release PR | Merge Version PR          |
+| **Version bump** | Manual trigger | Automatic      | In Release PR    | In Version PR             |
+| **CHANGELOG**    | Auto-generated | Auto-generated | Auto-generated   | From changesets           |
+| **Review gate**  | Optional       | None           | Required (PR)    | Required (PR + changeset) |
+| **Complexity**   | Low            | Low            | Medium           | High                      |
 
 ---
 
