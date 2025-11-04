@@ -43,6 +43,24 @@ npm run build
 
 ## Manual Release Process
 
+```mermaid
+sequenceDiagram
+    participant Dev as Developer
+    participant Local as Local Git
+    participant GH as GitHub
+    participant Actions as GitHub Actions
+    
+    Dev->>Local: Write code with conventional commits
+    Dev->>Local: git commit -m "feat: new feature"
+    Dev->>Dev: npm run release
+    Note over Dev: - Analyzes commits<br/>- Bumps version<br/>- Updates CHANGELOG<br/>- Creates git tag
+    Dev->>GH: git push --follow-tags
+    GH->>Actions: Tag push triggers workflow
+    Actions->>Actions: Run CI (lint, test, build)
+    Actions->>GH: Create GitHub Release
+    Actions->>GH: Upload tarball artifact
+```
+
 ### Step 1: Make changes with Conventional Commits
 
 ```bash
