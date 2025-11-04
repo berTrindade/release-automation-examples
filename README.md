@@ -1,11 +1,12 @@
-# node-release-poc (Manual Release Branch)
+# node-release-poc (Release Please Branch)
 
-**Branch**: `manual-release` - Demonstrates manual release process using standard-version
+**Branch**: `release-please` - Demonstrates PR-based release automation using Release Please
 
-Proof-of-concept showing a **manual release workflow** with:
-- Developer-controlled release timing via `npm run release`
-- Manual git tag pushing to trigger CI/CD
-- Standard-version for semantic versioning and changelog generation
+Proof-of-concept showing **Google's Release Please approach** with:
+- Bot-created release PRs for review
+- Human oversight before every release
+- Automated changelog generation
+- GitHub-native workflow
 
 ## Quick Start
 

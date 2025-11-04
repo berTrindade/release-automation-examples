@@ -9,8 +9,6 @@
         "lint": "eslint .",
         "test": "jest --runInBand",
         "build": "mkdir -p dist && npm pack --pack-destination dist",
-        "release": "standard-version",
-        "changelog": "standard-version --dry-run",
         "prepare": "husky install"
     },
     "repository": {

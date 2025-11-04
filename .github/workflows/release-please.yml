@@ -1,0 +1,48 @@
+name: Release Please
+
+on:
+  push:
+    branches: [release-please]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: googleapis/release-please-action@v4
+        id: release
+        with:
+          release-type: node
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # Only run build/release steps if a release was created
+      - uses: actions/checkout@v4
+        if: ${{ steps.release.outputs.release_created }}
+
+      - uses: actions/setup-node@v4
+        if: ${{ steps.release.outputs.release_created }}
+        with:
+          node-version: '18'
+
+      - run: npm ci
+        if: ${{ steps.release.outputs.release_created }}
+
+      - run: npm run lint
+        if: ${{ steps.release.outputs.release_created }}
+
+      - run: npm test -- --coverage
+        if: ${{ steps.release.outputs.release_created }}
+
+      - run: npm run build
+        if: ${{ steps.release.outputs.release_created }}
+
+      # Upload tarball to the GitHub release
+      - name: Upload tarball to release
+        if: ${{ steps.release.outputs.release_created }}
+        run: |
+          gh release upload ${{ steps.release.outputs.tag_name }} dist/*.tgz
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
