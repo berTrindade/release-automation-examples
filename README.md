@@ -43,6 +43,29 @@ npm run build
 
 ## Automated Release Process
 
+```mermaid
+sequenceDiagram
+    participant Dev as Developer
+    participant PR as Pull Request
+    participant Main as Main Branch
+    participant Actions as GitHub Actions
+    participant SR as semantic-release
+    participant GH as GitHub
+    
+    Dev->>Dev: Write code with conventional commits
+    Dev->>PR: Create Pull Request
+    Actions->>Actions: Run CI (lint, test)
+    PR->>Main: Merge to main
+    Main->>Actions: Trigger release workflow
+    Actions->>SR: Run semantic-release
+    SR->>SR: Analyze commits & determine version
+    SR->>SR: Update CHANGELOG & package.json
+    SR->>GH: Create git tag
+    SR->>GH: Create GitHub Release
+    SR->>GH: Upload tarball artifact
+    Note over SR,GH: All automatic - no manual steps!
+```
+
 ### Development Workflow
 
 1. **Create feature branch**:
