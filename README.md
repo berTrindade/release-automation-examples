@@ -43,6 +43,31 @@ npm run build
 
 ## Manual Release Process
 
+```mermaid
+sequenceDiagram
+    participant Dev as Developer
+    participant PR as Pull Request
+    participant Main as Main Branch
+    participant Actions as GitHub Actions
+    participant RP as Release Please Bot
+    participant ReleasePR as Release PR
+    participant GH as GitHub
+    
+    Dev->>Dev: Write code with conventional commits
+    Dev->>PR: Create Pull Request
+    Actions->>Actions: Run CI (lint, test)
+    PR->>Main: Merge to main
+    Main->>Actions: Trigger Release Please
+    RP->>RP: Analyze commits since last release
+    RP->>ReleasePR: Create/Update Release PR
+    Note over ReleasePR: - Bumps version<br/>- Updates CHANGELOG<br/>- Ready for review
+    ReleasePR->>Main: Human reviews & merges
+    Main->>Actions: Trigger release workflow
+    Actions->>Actions: Run CI (lint, test, build)
+    Actions->>GH: Create GitHub Release with tag
+    Actions->>GH: Upload tarball artifact
+```
+
 ### Step 1: Make changes with Conventional Commits
 ```bash
 git commit -m "feat: add new user endpoint"
