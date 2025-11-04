@@ -1,11 +1,12 @@
-# node-release-poc (Manual Release Branch)
+# node-release-poc (Changesets Branch)
 
-**Branch**: `manual-release` - Demonstrates manual release process using standard-version
+**Branch**: `changesets` - Demonstrates explicit change declaration using Changesets
 
-Proof-of-concept showing a **manual release workflow** with:
-- Developer-controlled release timing via `npm run release`
-- Manual git tag pushing to trigger CI/CD
-- Standard-version for semantic versioning and changelog generation
+Proof-of-concept showing the **Changesets approach** with:
+- Explicit changeset files for every change
+- Maximum control over releases and changelogs
+- Collaborative changelog creation
+- PR-based version packages workflow
 
 ## Quick Start
 

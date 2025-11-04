@@ -1,0 +1,45 @@
+name: Changesets
+
+on:
+  push:
+    branches: [changesets]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - run: npm ci
+
+      - run: npm run lint
+
+      - run: npm test -- --coverage
+
+      - name: Create Release Pull Request or Publish to GitHub
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          version: npm run version
+          publish: npm run release
+          createGithubReleases: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload tarball to release
+        if: steps.changesets.outputs.published == 'true'
+        run: |
+          TAG=$(git describe --tags --abbrev=0)
+          gh release upload $TAG dist/*.tgz --clobber
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
