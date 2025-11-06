@@ -1,3 +1,9 @@
+<div align="center">
+  
+![Node Release POC Banner](.github/social-preview-template.svg)
+
+</div>
+
 # node-release-poc (Changesets Branch)
 
 **Branch**: `changesets` - Demonstrates explicit change declaration using Changesets
@@ -7,6 +13,30 @@ Proof-of-concept showing the **Changesets approach** with:
 - Maximum control over releases and changelogs
 - Collaborative changelog creation
 - PR-based version packages workflow
+
+## Table of Contents
+
+- [Quick Start](#quick-start)
+- [Changesets Release Process](#changesets-release-process)
+  - [Step 1: Make code changes](#step-1-make-code-changes)
+  - [Step 2: Create a changeset](#step-2-create-a-changeset)
+  - [Step 3: Commit the changeset file](#step-3-commit-the-changeset-file)
+  - [Step 4: Create and merge PR](#step-4-create-and-merge-pr)
+  - [Step 5: Changesets bot creates Release PR](#step-5-changesets-bot-creates-release-pr)
+  - [Step 6: Review and merge Release PR](#step-6-review-and-merge-release-pr)
+- [Repository Structure](#repository-structure)
+- [Docker Usage](#docker-usage)
+- [Available Branches](#available-branches)
+- [Branch Comparison](#branch-comparison)
+
+## Available Branches
+
+| Branch           | Purpose                                                     | Status       |
+| ---------------- | ----------------------------------------------------------- | ------------ |
+| `manual-release` | Manual release workflow with standard-version               | Active       |
+| `auto-release`   | Fully automated releases via semantic-release               | Active       |
+| `release-please` | Google's release-please automation                          | Active       |
+| `changesets`     | **[Current]** Monorepo release management with changesets   | Experimental |
 
 ## Quick Start
 
