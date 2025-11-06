@@ -35,13 +35,12 @@
     },
     "lint-staged": {
         "*.js": [
-            "eslint --fix",
-            "git add"
+            "eslint --fix"
         ]
     },
     "standard-version": {
         "scripts": {
-            "postchangelog": "git add CHANGELOG.md"
+            "postchangelog": ""
         }
     }
 }
