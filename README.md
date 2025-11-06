@@ -6,6 +6,16 @@
 
 # Release Automation Examples (Release Please Branch)
 
+<div align="center">
+
+[![CI](https://github.com/berTrindade/release-automation-examples/actions/workflows/release-please.yml/badge.svg?branch=release-please)](https://github.com/berTrindade/release-automation-examples/actions/workflows/release-please.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+[![Release Please](https://img.shields.io/badge/release-please-brightgreen.svg)](https://github.com/googleapis/release-please)
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org)
+
+</div>
+
 **Branch**: `release-please` - Demonstrates PR-based release automation using Release Please
 
 Example showing **Google's Release Please approach** with:
