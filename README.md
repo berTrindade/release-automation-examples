@@ -6,6 +6,16 @@
 
 # Release Automation Examples (Changesets Branch)
 
+<div align="center">
+
+[![CI](https://github.com/berTrindade/release-automation-examples/actions/workflows/changesets.yml/badge.svg?branch=changesets)](https://github.com/berTrindade/release-automation-examples/actions/workflows/changesets.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+[![changesets](https://img.shields.io/badge/release-changesets-blue.svg)](https://github.com/changesets/changesets)
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org)
+
+</div>
+
 **Branch**: `changesets` - Demonstrates explicit change declaration using Changesets
 
 Example showing the **Changesets approach** with:
