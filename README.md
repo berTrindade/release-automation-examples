@@ -1,3 +1,9 @@
+<div align="center">
+  
+![Node Release POC Banner](.github/social-preview-template.svg)
+
+</div>
+
 # node-release-poc (Release Please Branch)
 
 **Branch**: `release-please` - Demonstrates PR-based release automation using Release Please
@@ -7,6 +13,28 @@ Proof-of-concept showing **Google's Release Please approach** with:
 - Human oversight before every release
 - Automated changelog generation
 - GitHub-native workflow
+
+## Table of Contents
+
+- [Quick Start](#quick-start)
+- [Release Please Process](#release-please-process)
+  - [Step 1: Make code changes with Conventional Commits](#step-1-make-code-changes-with-conventional-commits)
+  - [Step 2: Create and merge PR](#step-2-create-and-merge-pr)
+  - [Step 3: Release Please bot creates Release PR](#step-3-release-please-bot-creates-release-pr)
+  - [Step 4: Review and merge Release PR](#step-4-review-and-merge-release-pr)
+- [Repository Structure](#repository-structure)
+- [Docker Usage](#docker-usage)
+- [Available Branches](#available-branches)
+- [Branch Comparison](#branch-comparison)
+
+## Available Branches
+
+| Branch           | Purpose                                                     | Status       |
+| ---------------- | ----------------------------------------------------------- | ------------ |
+| `manual-release` | Manual release workflow with standard-version               | Active       |
+| `auto-release`   | Fully automated releases via semantic-release               | Active       |
+| `release-please` | **[Current]** Google's release-please automation            | Active       |
+| `changesets`     | Monorepo release management with changesets                 | Experimental |
 
 ## Quick Start
 
