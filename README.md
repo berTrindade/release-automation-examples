@@ -1,14 +1,14 @@
 <div align="center">
   
-![Node Release POC Banner](.github/social-preview-template.svg)
+![Release Automation Examples Banner](.github/social-preview-template.svg)
 
 </div>
 
-# node-release-poc (Release Please Branch)
+# Release Automation Examples (Release Please Branch)
 
 **Branch**: `release-please` - Demonstrates PR-based release automation using Release Please
 
-Proof-of-concept showing **Google's Release Please approach** with:
+Example showing **Google's Release Please approach** with:
 - Bot-created release PRs for review
 - Human oversight before every release
 - Automated changelog generation
