@@ -6,6 +6,16 @@
 
 # Release Automation Examples (Manual Release Branch)
 
+<div align="center">
+
+[![CI](https://github.com/berTrindade/release-automation-examples/actions/workflows/ci.yml/badge.svg?branch=manual-release)](https://github.com/berTrindade/release-automation-examples/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+[![standard-version](https://img.shields.io/badge/release-standard--version-brightgreen.svg)](https://github.com/conventional-changelog/standard-version)
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org)
+
+</div>
+
 **Branch**: `manual-release` - Demonstrates manual release process using standard-version
 
 Example showing a **manual release workflow** with:
