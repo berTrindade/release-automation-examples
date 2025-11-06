@@ -6,6 +6,16 @@
 
 # Release Automation Examples (Auto-Release Branch)
 
+<div align="center">
+
+[![CI](https://github.com/berTrindade/release-automation-examples/actions/workflows/ci.yml/badge.svg?branch=auto-release)](https://github.com/berTrindade/release-automation-examples/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+[![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org)
+
+</div>
+
 **Branch**: `auto-release` - Demonstrates fully automated release process using semantic-release
 
 Example showing a **fully automated release workflow** with:
