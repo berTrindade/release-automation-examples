@@ -1,3 +1,9 @@
+<div align="center">
+  
+![Node Release POC Banner](.github/social-preview-template.svg)
+
+</div>
+
 # node-release-poc (Manual Release Branch)
 
 **Branch**: `manual-release` - Demonstrates manual release process using standard-version
@@ -49,7 +55,7 @@ sequenceDiagram
     participant Local as Local Git
     participant GH as GitHub
     participant Actions as GitHub Actions
-    
+
     Dev->>Local: Write code with conventional commits
     Dev->>Local: git commit -m "feat: new feature"
     Dev->>Dev: npm run release
