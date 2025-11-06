@@ -1,14 +1,14 @@
 <div align="center">
   
-![Node Release POC Banner](.github/social-preview-template.svg)
+![Release Automation Examples Banner](.github/social-preview-template.svg)
 
 </div>
 
-# node-release-poc (Changesets Branch)
+# Release Automation Examples (Changesets Branch)
 
 **Branch**: `changesets` - Demonstrates explicit change declaration using Changesets
 
-Proof-of-concept showing the **Changesets approach** with:
+Example showing the **Changesets approach** with:
 - Explicit changeset files for every change
 - Maximum control over releases and changelogs
 - Collaborative changelog creation
