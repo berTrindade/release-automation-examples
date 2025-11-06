@@ -1,7 +1,7 @@
 {
-    "name": "node-release-poc",
+    "name": "release-automation-examples",
     "version": "0.0.3",
-    "description": "POC: Node.js release process with CI/CD, conventional commits, and semantic changelogs",
+    "description": "Comprehensive examples of automated release workflows: standard-version, semantic-release, release-please, and changesets",
     "main": "src/index.js",
     "scripts": {
         "start": "node src/index.js",
@@ -15,7 +15,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/your/repo.git"
+        "url": "git+https://github.com/berTrindade/release-automation-examples.git"
     },
     "keywords": [],
     "author": "",

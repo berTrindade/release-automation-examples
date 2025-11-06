@@ -1,14 +1,14 @@
 <div align="center">
   
-![Node Release POC Banner](.github/social-preview-template.svg)
+![Release Automation Examples Banner](.github/social-preview-template.svg)
 
 </div>
 
-# node-release-poc (Manual Release Branch)
+# Release Automation Examples (Manual Release Branch)
 
 **Branch**: `manual-release` - Demonstrates manual release process using standard-version
 
-Proof-of-concept showing a **manual release workflow** with:
+Example showing a **manual release workflow** with:
 
 - Developer-controlled release timing via `npm run release`
 - Manual git tag pushing to trigger CI/CD
