@@ -14,6 +14,28 @@ Proof-of-concept showing a **manual release workflow** with:
 - Manual git tag pushing to trigger CI/CD
 - Standard-version for semantic versioning and changelog generation
 
+## Table of Contents
+
+- [Quick Start](#quick-start)
+- [Manual Release Process](#manual-release-process)
+  - [Step 1: Make changes with Conventional Commits](#step-1-make-changes-with-conventional-commits)
+  - [Step 2: Create release locally](#step-2-create-release-locally)
+  - [Step 3: Push release to trigger CI](#step-3-push-release-to-trigger-ci)
+  - [Step 4: Monitor GitHub Actions](#step-4-monitor-github-actions)
+- [Repository Structure](#repository-structure)
+- [Docker Usage](#docker-usage)
+- [Available Branches](#available-branches)
+- [Branch Comparison](#branch-comparison)
+
+## Available Branches
+
+| Branch | Purpose | Status |
+|--------|---------|--------|
+| `manual-release` | **[Current]** Manual release workflow with standard-version | ✅ Active |
+| `auto-release` | Fully automated releases via semantic-release | ✅ Active |
+| `release-please` | Google's release-please automation | ✅ Active |
+| `changesets` | Monorepo release management with changesets | 🔧 Experimental |
+
 ## Quick Start
 
 1. Install dependencies:
