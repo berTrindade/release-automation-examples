@@ -31,12 +31,12 @@ Proof-of-concept showing the **Changesets approach** with:
 
 ## Available Branches
 
-| Branch           | Purpose                                                     | Status       |
-| ---------------- | ----------------------------------------------------------- | ------------ |
-| `manual-release` | Manual release workflow with standard-version               | Active       |
-| `auto-release`   | Fully automated releases via semantic-release               | Active       |
-| `release-please` | Google's release-please automation                          | Active       |
-| `changesets`     | **[Current]** Monorepo release management with changesets   | Experimental |
+| Branch           | Purpose                                                     | Status |
+| ---------------- | ----------------------------------------------------------- | ------ |
+| `manual-release` | Manual release workflow with standard-version               | Active |
+| `auto-release`   | Fully automated releases via semantic-release               | Active |
+| `release-please` | Google's release-please automation                          | Active |
+| `changesets`     | **[Current]** Monorepo release management with changesets   | Active |
 
 ## Quick Start
 
