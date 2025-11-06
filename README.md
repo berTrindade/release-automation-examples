@@ -1,14 +1,14 @@
 <div align="center">
   
-![Node Release POC Banner](.github/social-preview-template.svg)
+![Release Automation Examples Banner](.github/social-preview-template.svg)
 
 </div>
 
-# node-release-poc (Auto-Release Branch)
+# Release Automation Examples (Auto-Release Branch)
 
 **Branch**: `auto-release` - Demonstrates fully automated release process using semantic-release
 
-Proof-of-concept showing a **fully automated release workflow** with:
+Example showing a **fully automated release workflow** with:
 
 - Zero-touch releases triggered by merge to `main`
 - Automatic version determination from Conventional Commits
