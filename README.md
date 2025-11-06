@@ -1,3 +1,9 @@
+<div align="center">
+  
+![Node Release POC Banner](.github/social-preview-template.svg)
+
+</div>
+
 # node-release-poc (Auto-Release Branch)
 
 **Branch**: `auto-release` - Demonstrates fully automated release process using semantic-release
@@ -8,6 +14,28 @@ Proof-of-concept showing a **fully automated release workflow** with:
 - Automatic version determination from Conventional Commits
 - Automated changelog generation and GitHub Release creation
 - Optional npm package publishing
+
+## Table of Contents
+
+- [Quick Start](#quick-start)
+- [Automated Release Process](#automated-release-process)
+  - [Development Workflow](#development-workflow)
+  - [Commit Types & Versioning](#commit-types--versioning)
+- [Repository Structure](#repository-structure)
+- [Required GitHub Secrets](#required-github-secrets)
+- [Docker Usage](#docker-usage)
+- [Available Branches](#available-branches)
+- [Branch Comparison](#branch-comparison)
+- [Automated Release Benefits](#automated-release-benefits)
+
+## Available Branches
+
+| Branch           | Purpose                                                     | Status       |
+| ---------------- | ----------------------------------------------------------- | ------------ |
+| `manual-release` | Manual release workflow with standard-version               | Active       |
+| `auto-release`   | **[Current]** Fully automated releases via semantic-release | Active       |
+| `release-please` | Google's release-please automation                          | Active       |
+| `changesets`     | Monorepo release management with changesets                 | Experimental |
 
 ## Quick Start
 
